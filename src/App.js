@@ -12,7 +12,7 @@ export default function App() {
     setCash(target.value);
     let diff = target.value - billAmount;
     setChange(diff);
-  }; //need one more for change in bill
+  }; 
 
   const billChangeHandler = ({ target }) => {
     setBillAmount(target.value);
