@@ -17,18 +17,19 @@ html, body{
   background-color: black;
   color: white;
   padding: 0.1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
   border-radius:0 0 2rem 0;
 }
 
 .inputContainer{
-  padding: 0.1rem;
+  padding: 2rem 0.1rem;
   margin: auto;
   border-radius: 1rem;
   max-width: 65%;
   color: black;
   background-color: #F3F4F6;
-  margin-bottom: 0.5rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
 }
 
 input{
@@ -43,7 +44,8 @@ hr{
   background-color: black;
   color: white;
   font-family: 'Andika New Basic', sans-serif;
-  padding: 0.3rem 0.8rem;
+  font-size: larger;
+  padding: 0.4rem 0.9rem;
   border-radius: 0.5rem;
 }
 
@@ -51,9 +53,5 @@ hr{
   background-color: black;
   color: white;
   padding: 0.1rem 2rem;
-  margin-top: 2rem;
-  /* keeping it at bottom */
-  position: fixed;
-  bottom: 0;
-  width: 100%; 
+  margin-top: 3rem;
 }
