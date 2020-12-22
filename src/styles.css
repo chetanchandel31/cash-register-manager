@@ -1,4 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Andika+New+Basic:wght@400;700&display=swap');
+
+body{
+  margin: 0;
+}
+
 .App {
-  font-family: sans-serif;
+  font-family: 'Andika New Basic', sans-serif;
   text-align: center;
+}
+
+.header{
+  background-color: black;
+  color: white;
+  padding: 0.1rem;
+  margin-bottom: 1rem;
+  border-radius:0 0 2rem 0;
 }

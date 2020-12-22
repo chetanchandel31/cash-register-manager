@@ -54,11 +54,15 @@ export default function App() {
 
   return (
     <div className="App">
-      Available Currencies: {currenciesAvailable.join(", ")}.
+      <header className='header'>
+        <h1>Cash Register Manager</h1>
+      </header>
+      Available Currencies(in Rs.):<br/> {currenciesAvailable.join(", ")}.
       <p>Change: {change >= 0 ? change : "cash not enough to pay the bill"} </p>
      
       <p>
-        Bill to be paid: <input
+        Bill to be paid: <br/>
+        <input
         onChange={billChangeHandler}
         placeholder="bill amount"
         type="number"
@@ -66,7 +70,8 @@ export default function App() {
       </p>
 
       <p>
-        Cash received to pay bill: <input
+        Cash received to pay bill: <br/>
+        <input
         onChange={cashChangeHandler}
         placeholder="cash received"
         type="number"
@@ -74,7 +79,8 @@ export default function App() {
         />
       </p>
       <div>
-        Convert 'Change' to notes of available currency: <button onClick={convertHandler}>Convert</button>
+        {/* Convert 'Change' to notes of available currency: */}
+        <button onClick={convertHandler}>Convert</button>
       </div>
     </div>
   );
