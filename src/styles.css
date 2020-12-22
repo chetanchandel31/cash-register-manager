@@ -33,6 +33,10 @@ input{
   border-radius: 0.4rem;
 }
 
+hr{
+  border-top: solid 1px #6B7280;
+}
+
 .btn {
   background-color: black;
   color: white;
