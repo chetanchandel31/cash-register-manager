@@ -2,11 +2,13 @@
 
 body{
   margin: 0;
+  background-color: #6B7280;
 }
 
 .App {
   font-family: 'Andika New Basic', sans-serif;
   text-align: center;
+  color: white;
 }
 
 .header{
@@ -15,4 +17,33 @@ body{
   padding: 0.1rem;
   margin-bottom: 1rem;
   border-radius:0 0 2rem 0;
+}
+
+.inputContainer{
+  padding: 0.1rem;
+  margin: auto;
+  border-radius: 1rem;
+  max-width: 65%;
+  color: black;
+  background-color: #F3F4F6;
+  margin-bottom: 0.5rem;
+}
+
+input{
+  border-radius: 0.4rem;
+}
+
+.btn {
+  background-color: black;
+  color: white;
+  font-family: 'Andika New Basic', sans-serif;
+  padding: 0.3rem 0.8rem;
+  border-radius: 0.5rem;
+}
+
+.footer{
+  background-color: black;
+  color: white;
+  padding: 0.1rem 2rem;
+  margin-top: 2rem;
 }

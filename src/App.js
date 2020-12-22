@@ -21,8 +21,6 @@ export default function App() {
   };
 
   const convertToNotes = () => {
-    //don't entertain potential error click
-    if (change < 0) return alert(`Rs. ${billAmount-cash} more needed to pay the bill`);
     //an empty array which will later contain minimum notes required to return change
     let minNotes = [];
     //make a copy of change we have to return
@@ -48,8 +46,12 @@ export default function App() {
   };
 
   const convertHandler = () => {
-   const noteCombo= convertToNotes().join(', ');
-   alert('Return the change in this combo of notes: '+noteCombo);
+     //don't entertain potential error click
+    if (change < 0) return alert(`Rs. ${billAmount-cash} more needed to pay the bill`);
+    if (!billAmount) return alert('fill the required inputs');
+
+    const noteCombo= convertToNotes().join(', ');
+    alert('Return the change in this combo of notes: '+noteCombo);
   }
 
   return (
@@ -60,28 +62,36 @@ export default function App() {
       Available Currencies(in Rs.):<br/> {currenciesAvailable.join(", ")}.
       <p>Change: {change >= 0 ? change : "cash not enough to pay the bill"} </p>
      
-      <p>
-        Bill to be paid: <br/>
-        <input
-        onChange={billChangeHandler}
-        placeholder="bill amount"
-        type="number"
-        />{" "}
-      </p>
+     <div className='inputContainer'>
+        <p>
+          Bill to be paid: <br/>
+          <input
+          onChange={billChangeHandler}
+          placeholder="bill amount"
+          type="number"
+          />{" "}
+        </p>
+        <hr/>
+        <p>
+          Cash received to pay bill: <br/>
+          <input
+          onChange={cashChangeHandler}
+          placeholder="cash received"
+          type="number"
+          disabled={!billAmount}
+          />
+        </p>
 
-      <p>
-        Cash received to pay bill: <br/>
-        <input
-        onChange={cashChangeHandler}
-        placeholder="cash received"
-        type="number"
-        disabled={!billAmount}
-        />
-      </p>
-      <div>
-        {/* Convert 'Change' to notes of available currency: */}
-        <button onClick={convertHandler}>Convert</button>
       </div>
+
+      <div>
+        <button className='btn' onClick={convertHandler}>Convert</button>
+      </div>
+
+      <footer class='footer'>
+        <h1>about</h1>
+        <p> Clicking on 'Convert' converts the 'change' to the most efficient combo of notes</p>
+      </footer>
     </div>
   );
 }
