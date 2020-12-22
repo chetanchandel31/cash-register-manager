@@ -1,14 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Andika+New+Basic:wght@400;700&display=swap');
 
-body{
+html, body{
   margin: 0;
   background-color: #6B7280;
+  height: 100%;
 }
 
 .App {
   font-family: 'Andika New Basic', sans-serif;
   text-align: center;
   color: white;
+  height: 100%;
 }
 
 .header{
@@ -50,4 +52,8 @@ hr{
   color: white;
   padding: 0.1rem 2rem;
   margin-top: 2rem;
+  /* keeping it at bottom */
+  position: fixed;
+  bottom: 0;
+  width: 100%; 
 }
