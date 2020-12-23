@@ -5,6 +5,7 @@ export default function App() {
   const [billAmount, setBillAmount] = React.useState();
   const [cash, setCash] = React.useState();
   const [change, setChange] = React.useState(0);
+  const [output, setOutput] = React.useState();
 
   const currenciesAvailable = [1, 5, 10, 20, 100, 500, 2000];
 
@@ -20,7 +21,7 @@ export default function App() {
     setChange(diff);
   };
 
-  const convertToNotes = () => {
+  const convertChangeToNotes = () => {
     //an empty array which will later contain minimum notes required to return change
     let minNotes = [];
     //make a copy of change we have to return
@@ -50,8 +51,25 @@ export default function App() {
     if (change < 0) return alert(`Rs. ${billAmount-cash} more needed to pay the bill`);
     if (!billAmount) return alert('fill the required inputs');
 
-    const noteCombo= convertToNotes().join(', ');
-    alert('Return the change in this combo of notes: '+noteCombo);
+    const noteCombo= convertChangeToNotes();
+    const compressedNoteCombo = compressArray(noteCombo).join(', ');
+    setOutput('Return the change in this combo of notes: '+compressedNoteCombo+'.');
+  }
+
+  const compressArray = (arr) => {
+   let originalArr = (arr);
+   //same array but with all unique values
+   let uniqueArr = [...new Set (originalArr)];
+
+   //array which counts duplicates
+   let countArr = uniqueArr.map(unqItem => {
+     //count how many times this unique item repeats itself in originalArr
+    let count = originalArr.filter(orgItem => orgItem === unqItem).length;
+    //template as per need
+    return `Rs.${unqItem} x ${count}`
+   })
+
+   return countArr;
   }
 
   return (
@@ -62,7 +80,7 @@ export default function App() {
       Available Currencies(in Rs.):<br/> {currenciesAvailable.join(", ")}.
       <p>Change: {change >= 0 ? change : "cash not enough to pay the bill"} </p>
      
-     <div className='inputContainer'>
+     <div className='whiteContainer'>
         <p>
           Bill to be paid: <br/>
           <input
@@ -88,7 +106,11 @@ export default function App() {
         <button className='btn' onClick={convertHandler}>Convert</button>
       </div>
 
-      <footer class='footer'>
+      <div className='whiteContainer'>
+        {!output? 'output will be displayed here..' :output}
+      </div>
+
+      <footer className='footer'>
         <h1>about</h1>
         <p> Clicking on 'Convert' converts the 'change' to the most efficient combo of notes</p>
       </footer>
