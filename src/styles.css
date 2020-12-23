@@ -24,7 +24,7 @@ html, body{
 .whiteContainer{
   padding: 2rem 0.5rem;
   margin: auto;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   max-width: 65%;
   color: black;
   background-color: #F3F4F6;
