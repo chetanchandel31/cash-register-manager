@@ -1,7 +1,8 @@
 import React from "react";
+import App from "./App";
 import "./styles.css";
 
-export default function App() {
+export default function AppContainer() {
   const [billAmount, setBillAmount] = React.useState();
   const [cash, setCash] = React.useState();
   const [change, setChange] = React.useState(0);
@@ -73,47 +74,14 @@ export default function App() {
   }
 
   return (
-    <div className="App">
-      <header className='header'>
-        <h1>Cash Register Manager</h1>
-      </header>
-      Available Currencies(in Rs.):<br/> {currenciesAvailable.join(", ")}.
-      <p>Change: {change >= 0 ? change : "cash not enough to pay the bill"} </p>
-     
-     <div className='whiteContainer'>
-        <p>
-          Bill to be paid: <br/>
-          <input
-          onChange={billChangeHandler}
-          placeholder="bill amount"
-          type="number"
-          />{" "}
-        </p>
-        <hr/>
-        <p>
-          Cash received to pay bill: <br/>
-          <input
-          onChange={cashChangeHandler}
-          placeholder="cash received"
-          type="number"
-          disabled={!billAmount}
-          />
-        </p>
-
-      </div>
-
-      <div>
-        <button className='btn' onClick={convertHandler}>Convert</button>
-      </div>
-
-      <div className='whiteContainer'>
-        {!output? 'output will be displayed here..' :output}
-      </div>
-
-      <footer className='footer'>
-        <h1>about</h1>
-        <p> Clicking on 'Convert' converts the 'change' to the most efficient combo of notes</p>
-      </footer>
-    </div>
-  );
+      <App
+      currenciesAvailable={currenciesAvailable}
+      billAmount={billAmount}
+      change={change}
+      billChangeHandler={billChangeHandler}
+      cashChangeHandler={cashChangeHandler}
+      convertHandler={convertHandler}
+      output={output}
+      />
+     );
 }
