@@ -21,6 +21,12 @@ html, body{
   border-radius:0 0 2rem 0;
 }
 
+.listCurr{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
 .whiteContainer{
   padding: 2rem 0.5rem;
   margin: auto;
@@ -41,12 +47,22 @@ hr{
 }
 
 .btn {
+  font-family: 'Andika New Basic', sans-serif;
+  border-radius: 0.3rem;
+}
+
+.btnConvert{
   background-color: black;
   color: white;
-  font-family: 'Andika New Basic', sans-serif;
   font-size: larger;
   padding: 0.4rem 0.9rem;
-  border-radius: 0.5rem;
+}
+
+.btnMinus{
+  border: solid red 1px;
+  color: red;
+  margin: 0 0.5rem;
+  font-weight: bold;
 }
 
 .footer{

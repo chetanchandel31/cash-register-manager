@@ -7,8 +7,8 @@ export default function AppContainer() {
   const [cash, setCash] = React.useState();
   const [change, setChange] = React.useState(0);
   const [output, setOutput] = React.useState();
-
-  const currenciesAvailable = [1, 5, 10, 20, 100, 500, 2000];
+  const [currenciesAvailable, setCurrenciesAvailable] = React.useState([1, 5, 10, 20, 100, 500, 2000]);
+  const [newCurrency, setNewCurrency] = React.useState();
 
   const cashChangeHandler = ({ target }) => {
     setCash(target.value);
@@ -58,7 +58,7 @@ export default function AppContainer() {
   }
 
   const compressArray = (arr) => {
-   let originalArr = (arr);
+   let originalArr = arr;
    //same array but with all unique values
    let uniqueArr = [...new Set (originalArr)];
 
@@ -73,7 +73,39 @@ export default function AppContainer() {
    return countArr;
   }
 
+  //functions dealing with available currencies
+  function renderAvailableCurrencies () {
+    return currenciesAvailable.map((currency, i) => (
+      <li className='listCurr' key={i}>
+        Rs. {currency}
+        {i>0? <button className='btn btnMinus' onClick={() => deleteCurrency(i)}>-</button>: null}
+      </li>
+    ))
+  }
+
+  function deleteCurrency (i) {
+    //make copy of original Arr state var
+    let newCurrenciesAvailable = currenciesAvailable;
+    //make changes to it
+    let changedCurrencyArr = newCurrenciesAvailable.filter(currency => currency !== currenciesAvailable[i]);
+    //change original Arr state var
+    setCurrenciesAvailable(changedCurrencyArr);
+  }
+
+  function addNewCurrency () {
+    //check for unsuitable values passed
+    if (!newCurrency || newCurrency < 1) return alert('please enter a number greater than 1');
+    //make copy of original Arr state var
+    let newCurrenciesAvailable =[...currenciesAvailable];
+    //add new currency state var
+    newCurrenciesAvailable.push(newCurrency);
+    let finalCurrencyArr = newCurrenciesAvailable.sort((a, b) => a-b);
+    //update state var
+    setCurrenciesAvailable(finalCurrencyArr); 
+  }
+
   return (
+    <>
       <App
       currenciesAvailable={currenciesAvailable}
       billAmount={billAmount}
@@ -82,6 +114,11 @@ export default function AppContainer() {
       cashChangeHandler={cashChangeHandler}
       convertHandler={convertHandler}
       output={output}
+      renderAvailableCurrencies={renderAvailableCurrencies}
+      setNewCurrency={setNewCurrency}
+      addNewCurrency={addNewCurrency}
       />
+
+    </>
      );
 }

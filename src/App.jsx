@@ -7,7 +7,17 @@ export default function App (props) {
       <header className='header'>
         <h1>Cash Register Manager</h1>
       </header>
-      Available Currencies(in Rs.):<br/> {props.currenciesAvailable.join(", ")}.
+
+      <div>
+        Available Currencies(in Rs.):
+        <ul>
+          {props.renderAvailableCurrencies()}
+          <input type='number'
+          onChange={({target}) => props.setNewCurrency(target.value)}
+          placeholder='add new currency'/>
+          <button className='btn' onClick={props.addNewCurrency}>+</button>
+        </ul>
+      </div>
       <p>Change: {props.change >= 0 ? props.change : "cash not enough to pay the bill"} </p>
      
      <div className='whiteContainer'>
@@ -33,7 +43,7 @@ export default function App (props) {
       </div>
 
       <div>
-        <button className='btn' onClick={props.convertHandler}>Convert</button>
+        <button className='btn btnConvert' onClick={props.convertHandler}>Convert</button>
       </div>
 
       <div className='whiteContainer'>
