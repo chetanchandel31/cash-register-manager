@@ -8,7 +8,7 @@ export default function AppContainer() {
   const [change, setChange] = React.useState(0);
   const [output, setOutput] = React.useState();
   const [currenciesAvailable, setCurrenciesAvailable] = React.useState([1, 5, 10, 20, 100, 500, 2000]);
-  const [newCurrency, setNewCurrency] = React.useState();
+  const [newCurrency, setNewCurrency] = React.useState('');
 
   const cashChangeHandler = ({ target }) => {
     setCash(target.value);
@@ -76,7 +76,7 @@ export default function AppContainer() {
   //functions dealing with available currencies
   function renderAvailableCurrencies () {
     return currenciesAvailable.map((currency, i) => (
-      <li className='listCurr' key={i}>
+      <li key={i}>
         Rs. {currency}
         {i>0? <button className='btn btnMinus' onClick={() => deleteCurrency(i)}>-</button>: null}
       </li>
@@ -101,7 +101,8 @@ export default function AppContainer() {
     newCurrenciesAvailable.push(newCurrency);
     let finalCurrencyArr = newCurrenciesAvailable.sort((a, b) => a-b);
     //update state var
-    setCurrenciesAvailable(finalCurrencyArr); 
+    setCurrenciesAvailable(finalCurrencyArr);
+    setNewCurrency(''); 
   }
 
   return (
@@ -115,6 +116,7 @@ export default function AppContainer() {
       convertHandler={convertHandler}
       output={output}
       renderAvailableCurrencies={renderAvailableCurrencies}
+      newCurrency={newCurrency}
       setNewCurrency={setNewCurrency}
       addNewCurrency={addNewCurrency}
       />

@@ -21,7 +21,7 @@ html, body{
   border-radius:0 0 2rem 0;
 }
 
-.listCurr{
+.listCurrency{
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -49,6 +49,7 @@ hr{
 .btn {
   font-family: 'Andika New Basic', sans-serif;
   border-radius: 0.3rem;
+  transition-duration: 0.4s;
 }
 
 .btnConvert{
@@ -56,13 +57,38 @@ hr{
   color: white;
   font-size: larger;
   padding: 0.4rem 0.9rem;
+  border: solid black 2px;
+}
+
+.btnConvert:hover{
+  background-color: white;
+  color: black;
 }
 
 .btnMinus{
-  border: solid red 1px;
-  color: red;
+  border: solid red 2px;
+  padding: 0 0.4rem;
+  color: white;
+  background-color: red;
   margin: 0 0.5rem;
   font-weight: bold;
+}
+
+.btnMinus:hover {
+  background-color: white;
+  color: red;
+}
+
+.btnPlus{
+  background-color: green;
+  border: solid green 2px;
+  color: white;
+  font-weight: bold;
+}
+
+.btnPlus:hover{
+  color: green;
+  background-color: white;
 }
 
 .footer{

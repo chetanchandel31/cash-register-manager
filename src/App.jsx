@@ -10,12 +10,13 @@ export default function App (props) {
 
       <div>
         Available Currencies(in Rs.):
-        <ul>
+        <ul className='listCurrency'>
           {props.renderAvailableCurrencies()}
           <input type='number'
           onChange={({target}) => props.setNewCurrency(target.value)}
-          placeholder='add new currency'/>
-          <button className='btn' onClick={props.addNewCurrency}>+</button>
+          placeholder='add new currency'
+          value={props.newCurrency}/>
+          <button className='btn btnPlus' onClick={props.addNewCurrency}>+</button>
         </ul>
       </div>
       <p>Change: {props.change >= 0 ? props.change : "cash not enough to pay the bill"} </p>
