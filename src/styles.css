@@ -51,6 +51,7 @@ hr{
   font-family: 'Andika New Basic', sans-serif;
   border-radius: 0.3rem;
   transition-duration: 0.4s;
+  outline: none;
 }
 
 .btnConvert{
@@ -68,6 +69,7 @@ hr{
 
 .btnMinus{
   border: solid red 2px;
+  border-radius: 50%;
   padding: 0 0.4rem;
   color: white;
   background-color: red;
@@ -82,6 +84,7 @@ hr{
 
 .btnPlus{
   background-color: green;
+  border-radius: 50%;
   border: solid green 2px;
   color: white;
   font-weight: bold;
